@@ -4,12 +4,23 @@
      <table>
         <tr>
             {% for movie in movies %}
-                <td class="td_movie">
-                    <a href="/movie/{{movie.id}}">
+                <td class="td_movie" 
+                    data-movie-item="{{movie.id}}">
                     <img class="movie" 
-                         src="{{movie.rtpictureurl}}" />
-                    </a>
+                        tabindex="0" 
+                        role="button" 
+                        data-html="true" 
+                        data-toggle="popover" 
+                        data-trigger="focus" 
+                        title="{{ movie.title}}" 
+                        data-contentid="{{movie.id}}" 
+                        data-content="
+                              Year: {{movie.year}} <br/>
+                              Rotten Tomate rating: {{ movie.rtallcriticsrating }} <br />
+                              <a href='/movie/{{movie.id}}'>more details</a>" 
+                    src="{{movie.rtpictureurl.strip}}" />
                 </td>
+
                 {% if forloop.counter|divisibleby:5 %}
                     </tr><br/><tr>
                 {% endif  %}
