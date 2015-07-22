@@ -2,3 +2,5 @@ env
 *.DS_Store
 *.pyc
 __pycache__
+prs/project.sublime-workspace
+prs/project.sublime-workspace
